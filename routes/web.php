@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/download-report', [ReportController::class, 'downloadReport'])->name('download_report');
+
+Route::get('/report', function() {
+    return view('report');
+})->name('report_page');
+
